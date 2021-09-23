@@ -1,25 +1,36 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <NuxtLogo />
-      <v-card>
-        <v-card-title class="headline">
-          Nuxt + Vuetify
-        </v-card-title>
-        <v-card-text>
-          Hello World
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+  <container class="index-page">
+    <header-homepage class="header-homepage">
+      <h1>Coucou ceci est une catchphrase</h1>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      </div>
+    </header-homepage>
+    <content-homepage class="content-homepage">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolores expedita modi nesciunt! Dolores, ea, veniam? Animi at, error non numquam perspiciatis praesentium quae quaerat sint. Adipisci eligendi fugit voluptatibus.
+    </content-homepage>
+  </container>
 </template>
+<script>
+import HeaderHomepage from '~/components/header-homepage'
+import Container from '~/components/container'
+import ContentHomepage from '~/components/content-homepage'
+export default {
+  components: { ContentHomepage, HeaderHomepage, Container },
+  data () {
+    return {
+    }
+  },
+  methods: {
+  }
+}
+</script>
+<style scoped lang="scss">
+/*.index-page {
+  display: flex;
+  flex-direction: column;
+}
+.content-homepage {
+  flex-grow: 1;
+}*/
+</style>

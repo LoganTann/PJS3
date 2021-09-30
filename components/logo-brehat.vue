@@ -27,6 +27,7 @@ export default {
   & .text {
     font-family: 'Archivo', Arial, sans-serif;
     font-size: 1em;
+    padding-bottom: 0.4em;
     & .huge {
       font-size: 1.5em;
       font-weight: 900;

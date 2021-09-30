@@ -21,5 +21,6 @@ export default {
 <style scoped>
 #langSelect {
   width: 5em;
+  align-self: center;
 }
 </style>

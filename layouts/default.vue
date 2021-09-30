@@ -35,9 +35,6 @@ export default {
 body {
   padding: 0; margin: 0;
   font-family: 'Archivo', Arial, sans-serif;
-
-  /* côté perfectionniste, le layout de la navbar se casse si la page n'est pas scrollable, merci vuesax...*/
-  overflow-y: scroll;
 }
 
 .nuxt-tag {

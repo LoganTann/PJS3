@@ -1,9 +1,9 @@
 <template>
   <vs-select id="langSelect" v-model="lang">
-    <vs-option label="Fr" value="Fr">
+    <vs-option label="fr" value="fr">
       Fr
     </vs-option>
-    <vs-option label="En" value="En">
+    <vs-option label="en" value="en">
       En
     </vs-option>
   </vs-select>
@@ -13,7 +13,13 @@
 export default {
   name: 'NavLocalize',
   data () {
-    return { lang: 'Fr' }
+    return { lang: 'fr' }
+  },
+  watch: {
+    lang (val, oldVal) {
+      localStorage.setItem('brehatLang', val)
+      window.dispatchEvent(new CustomEvent('langChanged'))
+    }
   }
 }
 </script>

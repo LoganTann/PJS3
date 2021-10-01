@@ -1,0 +1,9 @@
+.scale-enter-active,
+.scale-leave-active {
+  transition: all 0.4s;
+}
+.scale-enter,
+.scale-leave-active {
+  opacity: 0;
+  transform: scale(0.9) translateY(5%);
+}

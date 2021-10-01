@@ -1,15 +1,19 @@
 <template>
   <nav :class="{'menuOpened': menuOpened}">
     <div class="mobileOnly">
-      <a href="#!" @click="menuOpened = true">menu</a>
-      <div class="shadow" @click="menuOpened = false"></div>
+      <a href="#!" @click="menuOpened = true">
+        <font-awesome-icon :icon="['fas', 'bars']" />
+      </a>
+      <div class="shadow" @click="menuOpened = false" />
     </div>
 
     <logo-brehat />
 
     <div class="links-container">
       <div class="mobileOnly navtext">
-        <a href="#!" @click="menuOpened = false">X</a>
+        <a href="#!" style="text-align: right;" @click="menuOpened = false">
+          <font-awesome-icon :icon="['fas', 'times']" />
+        </a>
         <div>
           <p>Ile de bréhat</p>
           <p>bréhahahaha</p>
@@ -20,9 +24,16 @@
         :key="link.link"
         :to="link.link"
         :class="{'active': isActive(link.link)}"
-        @click="menuOpened = true"
+        @click.native="timedCloseMenu()"
       >
-        {{ link.name }}
+        <translation>
+          <template #fr>
+            {{ link.name }}
+          </template>
+          <template #en>
+            {{ link.enName }}
+          </template>
+        </translation>
       </nuxt-link>
     </div>
 
@@ -39,19 +50,21 @@ export default {
   data () {
     return {
       links: [
-        { link: '/', name: 'Accueil' },
-        { link: '/discover', name: "Découvrir l'île" },
-        { link: '/live', name: 'Vivre et explorer' },
-        { link: '/stay', name: 'Séjourner' },
-        { link: '/services', name: 'Municipalité' }
+        { link: '/', name: 'Accueil', enName: 'Home' },
+        { link: '/discover', name: "Découvrir l'île", enName: 'Discover' },
+        { link: '/live', name: 'Vivre et explorer', enName: 'To see and do' },
+        { link: '/stay', name: 'Séjourner', enName: 'Your stay' },
+        { link: '/services', name: 'Municipalité', enName: 'Municipality' }
       ],
       menuOpened: false
     }
   },
   methods: {
     isActive (link) { return link === this.$route.path },
-    openMenu () { this.menuOpened = true },
-    closeMenu () { this.menuOpened = false }
+    timedCloseMenu () {
+      const self = this
+      setTimeout(() => self.menuOpened = false, 300)
+    }
   }
 }
 </script>
@@ -110,8 +123,6 @@ nav {
 .links-container a:hover {
   background: rgba(0,0,0,0.1);
 }
-
-
 
 /*mobile config*/
 @media screen and (max-width: 800px) {

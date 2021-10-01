@@ -25,6 +25,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/globalStyle.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -44,11 +45,21 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/content
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/fontawesome'
   ],
+
+  fontawesome: {
+    icons: {
+      solid: true,
+      brands: true
+    }
+  },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {},
+
+  pageTransition: 'scale',
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

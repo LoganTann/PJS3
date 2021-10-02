@@ -63,7 +63,7 @@ export default {
     isActive (link) { return link === this.$route.path },
     timedCloseMenu () {
       const self = this
-      setTimeout(() => self.menuOpened = false, 300)
+      setTimeout(() => { self.menuOpened = false }, 300)
     }
   }
 }

@@ -20,13 +20,12 @@ export default {
   },
   methods: {
     translate () {
-      if (process.client) {
-        const lang = localStorage.getItem('brehatLang')
-        if (this.supportedLocales.includes(lang)) {
-          this.lang = lang
-        } else {
-          console.error('unknown lang:', lang)
-        }
+      if (!process.client) {
+        return
+      }
+      const lang = localStorage.getItem('brehatLang')
+      if (this.supportedLocales.includes(lang)) {
+        this.lang = lang
       }
     }
   }

@@ -24,7 +24,6 @@ export default {
   min-height: 100vh;
 }
 .nuxt-tag {
-  padding-top: 50px;
   flex-grow: 1;
 }
 .footer-main {

@@ -1,15 +1,10 @@
 <template>
-  <container class="index-page">
-    <header-homepage class="header-homepage">
-      <h1>Coucou ceci est une catchphrase</h1>
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </div>
-    </header-homepage>
+  <div>
+    <header-homepage class="header-homepage"/>
     <content-homepage class="content-homepage">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur dolores expedita modi nesciunt! Dolores, ea, veniam? Animi at, error non numquam perspiciatis praesentium quae quaerat sint. Adipisci eligendi fugit voluptatibus.
     </content-homepage>
-  </container>
+  </div>
 </template>
 <script>
 import HeaderHomepage from '~/components/header-homepage'

@@ -7,7 +7,7 @@ const API_ENDPOINT = 'https://services.data.shom.fr/hdm/vignette/petite/BREHAT_M
 exports.handler = async (_event, _context) => {
   try {
     const response = await fetch(API_ENDPOINT)
-    const text = await response.text()
+    const text = (await response.text())
       .split('document.open();')[1]
       .replace(/(\\)|(ifrm\.document\.(write|open|close)\(('*))|('*)\);/gmi, '')
 

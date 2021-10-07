@@ -11,7 +11,7 @@
 
     <div class="links-container">
       <div class="mobileOnly navtext">
-        <a href="#!" style="text-align: right;" @click="menuOpened = false">
+        <a id="mobileCloseBtn" href="#!" @click="menuOpened = false">
           <font-awesome-icon :icon="['fas', 'times']" />
         </a>
         <div>
@@ -69,7 +69,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
 .mobileOnly {
   display: none;
@@ -94,7 +94,7 @@ nav {
 .links-container {
   display: flex;
 }
-.links-container a {
+.links-container a, .mobileOnly a {
   display: block;
   position: relative;
   padding: 0 0.5em;
@@ -103,7 +103,7 @@ nav {
   text-decoration: none;
   transition: all 0.5s;
 }
-.links-container a.active {
+.links-container a.active, .mobileOnly a:hover {
   color: black;
 }
 .links-container a::after {
@@ -122,6 +122,15 @@ nav {
 }
 .links-container a:hover {
   background: rgba(0,0,0,0.1);
+}
+#mobileCloseBtn {
+  position: relative;
+  left: calc(100% - 2em);
+  display: inline;
+  &:hover {
+    background: white;
+    color: black;
+  }
 }
 
 /*mobile config*/

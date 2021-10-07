@@ -18,7 +18,7 @@ exports.handler = async (_event, _context) => {
     for (const heure of heures) {
       out.push(heure.textContent.replace(/\\n|[^A-Za-z0-9:\-.]/gmi, ''))
     }
-    const say = cowsay.say({
+    const cow = cowsay.say({
       cow: 'awesome-face',
       text: `À Bréhat, la prochaine marrée ${out[3].includes('-') ? 'basse' : 'haute'} sera à ${out[1]}`
     }).split('\n')
@@ -26,7 +26,7 @@ exports.handler = async (_event, _context) => {
     return {
       statusCode: 200,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ out, cow: say })
+      body: JSON.stringify({ cow, out })
     }
   } catch (error) {
     return {

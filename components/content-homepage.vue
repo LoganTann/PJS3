@@ -18,44 +18,20 @@
 <script>
 export default {
   name: 'ContentHomepage',
+
+  props: {
+    articles: { type: Array, default: () => [] }
+  },
   data () {
     return {
       agenda: [
-        {
-          name: 'Repas des aînés',
-          descr: 'Les élus de l’Ile de Bréhat ont le plaisir de vous informer que le repas des aînés est prévu dimanche 7 novembre 2021.',
-          date: '7/11/2021'
-        },
-        {
-          name: 'coupure de courant',
-          descr: 'Une coupure de courant aura lieu le vendredi 24 septembre pour cause de maintenance',
-          date: '24/09/2021'
-        },
-        {
-          name: 'coupure de courant',
-          descr: 'Une coupure de courant aura lieu jeudi 13 octobre pour cause de maintenance',
-          date: '10/10/2021'
-        }
       ],
       news: [
-        {
-          name: 'Festival Les Scènes de Bréhat',
-          descr: 'La mairie a le plaisir de vous partager une rediffusion du premier festival des Scènes de Bréhat.'
-        },
-        {
-          name: 'Enquête : que deviennent vos biodéchets ?',
-          descr: 'La comission des déchets étudie son impact et a besoin de vous pour répondre à leur enquête !'
-        },
-        {
-          name: 'Port du masque obligatoire par arrêté préfectoral du 25 août 2021',
-          descr: 'Le port du masque est obligatoire de 7h30 à 22h par arrêté préfectoral du 25 août 2021.'
-        },
-        {
-          name: "Etat de la situation sanitaire à l'île de bréhat",
-          descr: "Récapitulatif de la situation sanitaire de l'île au 13 juillet 2021"
-        }
       ]
     }
+  },
+  created () {
+    console.log(this.articles)
   }
 }
 </script>

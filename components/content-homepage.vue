@@ -2,22 +2,23 @@
   <main>
     <div>
       <h3>L'agenda de bréhat</h3>
-      <div v-for="elem of agenda" :key="elem.name">
-        <p>{{ elem }}</p>
-      </div>
+      <card v-for="elem of agenda.slice(0, 3)" :key="elem.name" :article="elem" is-horizontal />
     </div>
     <div>
       <h3>Dernières nouvelles</h3>
-      <div v-for="elem of news" :key="elem.name">
-        <p>{{ elem }}</p>
+      <div class="scrollableNews">
+        <card v-for="elem of news.slice(0, 3)" :key="elem.name" :article="elem" />
       </div>
     </div>
   </main>
 </template>
 
 <script>
+import card from './card.vue'
+
 export default {
   name: 'ContentHomepage',
+  components: { card },
 
   props: {
     articles: { type: Array, default: () => [] }
@@ -31,7 +32,11 @@ export default {
     }
   },
   created () {
-    console.log(this.articles)
+    for (const article of this.articles) {
+      const whereToAdd = (article.type === 'date') ? 'agenda' : 'news'
+      this[whereToAdd].unshift(article)
+    }
+    console.log(this.agenda, this.news)
   }
 }
 </script>
@@ -41,9 +46,18 @@ main {
   background: #007FA4;
   color: white;
   padding: 2em 1em;
-  display: flex;
+
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 1fr);
+  grid-template-rows: 1fr;
+  gap: 0px 1em;
+  grid-template-areas: "agenda news";
 }
-main div:first-child {
-  width: 50%;
+main>div:first-child { grid-area: agenda; }
+main>div:last-child { grid-area: news; }
+
+.scrollableNews {
+  display: flex;
+  overflow-x: auto;
 }
 </style>

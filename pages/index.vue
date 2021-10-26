@@ -1,7 +1,7 @@
 <template>
   <div>
     <header-homepage class="header-homepage" />
-    <content-homepage class="content-homepage" :articles="articles"/>
+    <content-homepage class="content-homepage" :articles="articles" />
   </div>
 </template>
 <script>

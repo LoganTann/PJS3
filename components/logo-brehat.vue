@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link id="logo" to="./">
+  <nuxt-link id="logo" to="/">
     <img src="/img/brehat.png" alt="blazon Île bréhat">
     <div class="text">
       Île de <span class="huge">Bréhat</span>

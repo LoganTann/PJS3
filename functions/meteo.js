@@ -24,16 +24,17 @@ async function mareeJson () {
 
 async function meteoJson () {
   const meteo = await fetch(METEO_ENDPOINT)
-  return await meteo.json().current
+  const json = await meteo.json()
+  return json.current
 }
 
-function createCow (meteo) {
+function createCow (maree) {
   return cowsay
     .say({
       cow: 'awesome-face',
       text: `À Bréhat, la prochaine marrée ${
-        meteo[3].includes('-') ? 'basse' : 'haute'
-      } sera à ${meteo[1]}`
+        maree[3].includes('-') ? 'basse' : 'haute'
+      } sera à ${maree[1]}`
     })
     .split('\n')
 }

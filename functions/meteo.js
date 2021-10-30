@@ -22,7 +22,7 @@ async function mareeJson () {
   return out
 }
 
-let cache = null;
+let cache = null
 
 async function meteoJson () {
   if (cache) {

@@ -51,7 +51,7 @@ exports.handler = async (_event, _context) => {
     // construction du body de la requête
     const meteo = await meteoJson()
     const maree = await mareeJson()
-    const cow = createCow(meteo)
+    const cow = createCow(maree)
 
     return {
       statusCode: 200,

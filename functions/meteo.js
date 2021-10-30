@@ -35,7 +35,7 @@ async function meteoJson () {
     json.current._cached = true
     return json.current
   }
-  return {"error"}
+  return 'error'
 }
 
 function createCow (maree) {

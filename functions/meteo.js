@@ -54,10 +54,18 @@ exports.handler = async (_event, _context) => {
     const maree = await mareeJson()
     const cow = createCow(maree)
 
+    const errors = []
+    if (!meteo) {
+      errors.push('Impossible de récupérer la météo : ')
+      const ret = await fetch(METEO_ENDPOINT)
+      const json = await ret.json()
+      errors.push(json)
+    }
+
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({ cow, maree, meteo })
+      body: JSON.stringify({ cow, maree, meteo, error: errors })
     }
   } catch (error) {
     return {

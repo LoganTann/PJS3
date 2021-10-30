@@ -25,7 +25,12 @@ exports.handler = async (_event, _context) => {
 
     return {
       statusCode: 200,
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTION'
+      },
       body: JSON.stringify({ cow, out })
     }
   } catch (error) {

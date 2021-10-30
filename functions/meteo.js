@@ -23,14 +23,17 @@ exports.handler = async (_event, _context) => {
       text: `À Bréhat, la prochaine marrée ${out[3].includes('-') ? 'basse' : 'haute'} sera à ${out[1]}`
     }).split('\n')
 
+    const headers = { 'Content-Type': 'application/json' }
+    // L'api sera accessible publiquement seulement avant décembre
+    if (new Date().getTime() < new Date('2021-12-31').getTime()) {
+      headers['Access-Control-Allow-Origin'] = '*'
+      headers['Access-Control-Allow-Headers'] = 'Content-Type'
+      headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTION'
+    }
+
     return {
       statusCode: 200,
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'GET, POST, OPTION'
-      },
+      headers,
       body: JSON.stringify({ cow, out })
     }
   } catch (error) {

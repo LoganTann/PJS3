@@ -26,13 +26,13 @@ let cache = null;
 
 async function meteoJson () {
   if (cache) {
+    cache._cached = true
     return cache
   }
   const meteo = await fetch(METEO_ENDPOINT)
   const json = await meteo.json()
   if (json.current) {
     cache = json.current
-    json.current._cached = true
     return json.current
   }
   return 'error'

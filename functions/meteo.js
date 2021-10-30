@@ -15,7 +15,7 @@ exports.handler = async (_event, _context) => {
       .split('document.open();')[1]
       .replace(/(\\)|(ifrm\.document\.(write|open|close)\(('*))|('*)\);/gmi, '')
 
-    const meteoJson = (await meteo.json())?.current
+    const meteoJson = (await meteo.json()).current
 
     const dom = new JSDOM(text)
     const heures = dom.window.document.querySelectorAll('td')

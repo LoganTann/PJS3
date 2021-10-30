@@ -22,10 +22,20 @@ async function mareeJson () {
   return out
 }
 
+let cache = null;
+
 async function meteoJson () {
+  if (cache) {
+    return cache
+  }
   const meteo = await fetch(METEO_ENDPOINT)
   const json = await meteo.json()
-  return json.current
+  if (json.current) {
+    cache = json.current
+    json.current._cached = true
+    return json.current
+  }
+  return {"error"}
 }
 
 function createCow (maree) {
@@ -41,7 +51,10 @@ function createCow (maree) {
 
 exports.handler = async (_event, _context) => {
   try {
-    const headers = { 'Content-Type': 'application/json' }
+    const headers = {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'public, s-maxage=10000'
+    }
     // L'api sera accessible publiquement seulement avant décembre
     if (new Date().getTime() < new Date('2021-12-31').getTime()) {
       headers['Access-Control-Allow-Origin'] = '*'
@@ -61,11 +74,12 @@ exports.handler = async (_event, _context) => {
       const json = await ret.json()
       errors.push(json)
     }
+    const requestDate = new Date().toString()
 
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({ cow, maree, meteo, error: errors })
+      body: JSON.stringify({ cow, maree, meteo, errors, requestDate })
     }
   } catch (error) {
     return {

@@ -79,8 +79,12 @@ exports.handler = async (_event, _context) => {
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({ cow, maree, meteo, errors, requestDate })
-    }
+      body: JSON.stringify(
+        { cow, maree, meteo, errors, requestDate },
+        undefined,
+        1
+      )
+    };
   } catch (error) {
     return {
       statusCode: 500,

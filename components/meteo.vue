@@ -30,7 +30,8 @@ export default {
       image: false,
       temperature: 15,
       typeMaree: '',
-      timeoutMaree: '...'
+      timeoutMaree: '...',
+      timer: null
     }
   },
   async created () {
@@ -77,8 +78,6 @@ export default {
       for (const refTime in _intervalleMarees) {
         time[refTime] = this.strToDate(_intervalleMarees[refTime])
       }
-      // incrémente le jour vu que c'est le matin
-      time.matinee.setDate(time.matinee.getDate() + 1)
 
       // traitement du cas simple et des cas particuliers
       // tout ça parceque leur module de marée est pas foutu de se mettre à jour en temps réel
@@ -95,14 +94,13 @@ export default {
           i += 2
         }
         prochaineMaree = [lessive[i - 1], lessive[i]]
-      } else if (
-        this.encadre(currentTime, this.strToDate(lessive[1]), time.minuit) ||
-          this.encadre(this.strToDate('00:01'), this.strToDate(lessive[1]), time.matinee)
-      ) {
+      } else if (this.encadre(currentTime, this.strToDate(lessive[1]), time.minuit) ||
+          this.encadre(this.strToDate('00:01'), this.strToDate(lessive[1]), time.matinee)) {
+        estDemain = this.encadre(this.strToDate('00:01'), this.strToDate(lessive[1]), time.matinee)
+        prochaineMaree = [lessive[0], lessive[1]]
         // cas particuliers où c'est toujours vrai si on est le soir (ie. possibilité que la prochaine marée soit au lendemain):
         // - prochaine heure de marée comprise entre l'heure courante et minuit
         // - prochaine heure de marée comprise entre minuit et la matinée
-        prochaineMaree = [lessive[0], lessive[1]]
       } else {
         // prochaine heure de marée comprise entre minuit et la matinée = c'est demain
         estDemain = this.encadre(this.strToDate('00:01'), this.strToDate(lessive[3]), time.matinee)
@@ -119,17 +117,25 @@ export default {
     },
     startTimer (countDownDate, prochaineMaree) {
       this.typeMaree = prochaineMaree[0] === 'BM' ? 'Basse' : 'Haute'
-      const x = setInterval(function () {
+      this.timer = setInterval(function () {
         const { h, m, s } = this.dateCountdown(countDownDate)
         if (h + m + s <= 0) {
-          clearInterval(x)
+          clearInterval(this.timer)
           this.timeoutMaree = 'Banannée !'
           location.reload()
         }
         this.timeoutMaree = this.leadingZero(h) + ':' + this.leadingZero(m) + ':' + this.leadingZero(s) + '\''
       }.bind(this), 1000)
     },
-
+    debugTimer (data) {
+      // sert juste à des fins de débogage
+      // pour l'appeler, avoir l'extension vue devtools activée
+      // puis sélectionner ce composant et faire un appel à la fonction $vm0.debugTimer( data )
+      if (this.timer) {
+        clearInterval(this.timer)
+      }
+      this.traitement(data)
+    },
     // fonctions utilitaires -----
     encadre (a, b, c) {
       return a < b && b < c

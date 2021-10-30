@@ -84,7 +84,7 @@ exports.handler = async (_event, _context) => {
         undefined,
         1
       )
-    };
+    }
   } catch (error) {
     return {
       statusCode: 500,

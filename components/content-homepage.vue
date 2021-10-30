@@ -36,7 +36,6 @@ export default {
       const whereToAdd = (article.type === 'date') ? 'agenda' : 'news'
       this[whereToAdd].unshift(article)
     }
-    console.log(this.agenda, this.news)
   }
 }
 </script>

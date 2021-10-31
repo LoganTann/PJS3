@@ -11,8 +11,8 @@
     </video>
     <div class="header-content">
       <div class="texte">
-        <h1>Coucou ceci est une catchphrase</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <h1>Un voyage à Bréhat, c’est mille voyages</h1>
+        <p>Ouvrez l’œil et freinez l’allure. Car Bréhat n’est pas qu’une île : c'est un archipel, où chacune de ses sections résument le monde. Que vous soyez touriste ou résident, prenez le temps d'aborder le premier site classé en France en le découvrant au travers de notre site !</p>
       </div>
       <meteo />
     </div>
@@ -46,7 +46,7 @@ video {
   background-color: rgba(0,0,0,0.3);
   color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 

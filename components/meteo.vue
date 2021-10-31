@@ -40,13 +40,13 @@ export default {
     const req = await fetch(API_ENDPOINT)
     const data = await req.json()
     // détermination de l'icone météo
-    let iconName = 'slight_rain'
+    let iconName = 'cloud_slight_rain'
     if (data.meteo.precip < 70) {
       if (data.meteo.cloudcover < 5) {
         iconName = 'full_sun'
-      } else if (data.meteo.cloudcover < 30) {
-        iconName = 'partly_cloudy'
       } else if (data.meteo.cloudcover < 70) {
+        iconName = 'partly_cloudy'
+      } else {
         iconName = 'full_clouds'
       }
     }
@@ -218,9 +218,10 @@ export default {
 }
 div.carreMeteo {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background: rgba(133, 144, 153, 1);
+  background-color: rgba(0,0,0,0.2);
   color: white;
   border-radius: 5%;
+  border-color: white;
 }
 .texteMaree:before {
   content: url("/img/clock_white_bg.png");

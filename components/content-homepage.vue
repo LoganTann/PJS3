@@ -40,7 +40,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+$mobile-width: 800px;
+
 main {
   background: #007FA4;
   color: white;
@@ -51,6 +54,14 @@ main {
   grid-template-rows: 1fr;
   gap: 0px 1em;
   grid-template-areas: "agenda news";
+}
+@media screen and (max-width: $mobile-width) {
+  main {
+    grid-template-areas: "agenda" "news";
+    gap: 1em 0px;
+    grid-template-rows: minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 main>div:first-child { grid-area: agenda; }
 main>div:last-child { grid-area: news; }

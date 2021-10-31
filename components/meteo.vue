@@ -1,7 +1,7 @@
 <template>
   <div class="carreMeteo">
     <div class="imageMeteo">
-      <img v-if="image" :src="image" alt="">
+      <img v-if="image" :src="image" alt="météo">
     </div>
     <div class="temperature">
       {{ temperature }}°C
@@ -10,7 +10,7 @@
       <hr color="white">
     </div>
     <div class="texteMaree">
-      <div />
+      <img src="/img/clock_white_bg.png" alt="">
       <div class="typeMaree">
         Marée {{ typeMaree }} dans
       </div>
@@ -124,7 +124,7 @@ export default {
           this.timeoutMaree = 'Banannée !'
           location.reload()
         }
-        this.timeoutMaree = this.leadingZero(h) + ':' + this.leadingZero(m) + ':' + this.leadingZero(s) + '\''
+        this.timeoutMaree = this.leadingZero(h) + ' : ' + this.leadingZero(m) + ' : ' + this.leadingZero(s) + '\''
       }.bind(this), 1000)
     },
     debugTimer (data) {
@@ -164,40 +164,38 @@ export default {
 }
 </script>
 
-<style>
-.carreMeteo {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(7, 1fr);
-  width: 150px;
-  height: 150px;
-  border: 1px solid black;
-  font-family: sans-serif;
+<style lang="scss" scoped>
 
+$fallbackFonts: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+.carreMeteo {
+  color: white;
+  border: 1px solid white;
+  font-family: 'Archivo', $fallbackFonts;
+  padding: 0.5em;
+  margin: 0.5em;
+  background-color: rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  display: grid;
   grid-template:
-    "temperature temperature imageMeteo"
-    "temperature temperature imageMeteo"
-    "separateur separateur separateur"
-    "textMaree textMaree textMaree"
-    "textMaree textMaree textMaree"
-    "maree maree maree"
-    "maree maree maree";
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+    "temperature imageMeteo"
+    "separateur separateur"
+    "textMaree textMaree"
+    "maree maree";
+  grid-template-columns: 90px 90px;
+  grid-template-rows: 65px 25px 45px 45px;
+  justify-items: center;
+  align-items: center;
 }
-.carreMeteo > div {
-  justify-self: center;
-  align-self: center;
-}
-.carreMeteo > div.imageMeteo {
+
+.imageMeteo {
   grid-area: imageMeteo;
-  margin-right: 0.3em;
-  justify-self: right;
 }
-.carreMeteo > div.temperature {
+.temperature {
   grid-area: temperature;
-  margin-left: 0.8em;
-  justify-self: left;
+  justify-self: right;
+  font-size: 2em;
 }
 .separateur {
   grid-area: separateur;
@@ -207,35 +205,22 @@ export default {
   grid-area: textMaree;
   display: flex;
   justify-content: center;
+  align-items: center;
+  & img {
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+  }
+  & .typeMaree {
+    font-size: 1.3em;
+    font-family: 'Staatliches', $fallbackFonts;
+  }
 }
 
-.texteMaree div:first-child {
-  color: green;
-  margin-right: 0.5em;
-}
 .timeoutMaree {
   grid-area: maree;
-}
-div.carreMeteo {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: rgba(0,0,0,0.2);
-  color: white;
-  border-radius: 5%;
-  border-color: white;
-}
-.texteMaree:before {
-  content: url("/img/clock_white_bg.png");
-  position: relative;
-}
-
-.typeMaree {
-  padding-top: 10%;
-  font-size: xx-small;
-}
-
-.imageMeteo img {
-  padding-top: 10%;
-  padding-left: 25%;
+  font-weight: 100;
+  font-size: 2em;
 }
 
 </style>

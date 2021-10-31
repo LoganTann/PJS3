@@ -1,8 +1,16 @@
 <template>
   <header class="header-article" :class="{'havesBg': img}" :style="img ? `background-image: url(/img/${img});` : ''">
+    <social-head
+      :title="title"
+      :description="description"
+      :image="'/img/'+img"
+    />
     <div>
       <span v-if="type">{{ type }}</span>
       <h1>{{ title }}</h1>
+      <p v-if="description" class="desc">
+        {{ description }}
+      </p>
       <p v-if="date">
         {{ date }}
       </p>
@@ -29,6 +37,10 @@ export default {
     img: {
       type: String,
       default: null
+    },
+    description: {
+      type: String,
+      default: null
     }
   }
 }
@@ -53,6 +65,11 @@ $titleOffset: 3em;
     }
     &>p {
       color: #333;
+    }
+    &>p.desc {
+      max-width: 35em;
+      margin: auto;
+      color: #354bcf;
     }
   }
 }

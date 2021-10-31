@@ -1,15 +1,11 @@
 <template>
   <div v-if="article">
-    <social-head
-      :title="article.title"
-      :description="article.description"
-      :image="article.img"
-    />
     <ArticleHeader
       :img="article.img"
       :type="articleType"
       :title="article.title"
       :date="date"
+      :description="article.description"
     />
     <ArticleContent>
       <nuxt-content :document="article" />

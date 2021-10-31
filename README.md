@@ -23,6 +23,13 @@ Permet de définir un layout par défaut. C'est ici qu'est contenu la navbar et 
 
 Plus d'infos dans la [documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
 
+
+### `content`
+
+Contient chaque article de blog. un article = un fichier markdown et non un fichier vue.
+
+Plus d'infos sur la [doc de Nuxt/Content](https://content.nuxtjs.org/)
+
 ### `static`
 
 This directory contains your static files. Each file inside this directory is mapped to `/`.

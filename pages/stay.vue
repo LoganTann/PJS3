@@ -1,11 +1,11 @@
 <template>
-  <container class="index-page">
-    <header-article
+  <div class="index-page">
+    <ArticleHeader
       type="Visiter bréhat"
       title="Séjourner à l'Île de Bréhat"
       img="hotel.jpg"
     />
-    <content-article>
+    <ArticleContent>
       <div>
         <p>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium dolorum culpa maiores omnis architecto, placeat quidem expedita cumque, rem quae modi, labore repudiandae reiciendis. Repudiandae rem recusandae magni reiciendis illo?
@@ -32,8 +32,8 @@
           Nam ac vehicula turpis. Maecenas eget laoreet quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed tortor massa, tempor ac ex efficitur, blandit ullamcorper mi. Nunc sit amet purus ipsum. Aliquam volutpat eu elit eget convallis. Nulla a volutpat nisi, in pellentesque est. Suspendisse lobortis molestie orci, sit amet imperdiet nisi commodo vitae. Nullam vel ultrices leo. Sed blandit, lacus non varius placerat, tortor elit vehicula urna, ac aliquam purus sem quis justo. Mauris sollicitudin molestie mi, ut accumsan arcu bibendum quis. Morbi sit amet enim lectus. Phasellus eget eleifend ex. Nam iaculis rhoncus fringilla. Morbi quis interdum lectus.
         </p>
       </div>
-    </content-article>
-  </container>
+    </ArticleContent>
+  </div>
 </template>
 
 <script>

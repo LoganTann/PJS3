@@ -1,17 +1,16 @@
 <template>
-  <vs-select id="langSelect" v-model="lang">
-    <vs-option label="fr" value="fr">
+  <select id="langSelect" v-model="lang">
+    <option label="fr" value="fr">
       Fr
-    </vs-option>
-    <vs-option label="en" value="en">
+    </option>
+    <option label="en" value="en">
       En
-    </vs-option>
-  </vs-select>
+    </option>
+  </select>
 </template>
 
 <script>
 export default {
-  name: 'NavLocalize',
   data () {
     return { lang: 'fr' }
   },

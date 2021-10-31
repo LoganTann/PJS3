@@ -17,10 +17,10 @@
           Retrouvez-nous sur les réseaux sociaux :
         </p>
         <a class="socialbtn" href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2FMairie-de-lile-de-Br%25C3%25A9hat-109476447520454%2F">
-          <img src="/img/FB.png">
+          <img src="/icons/FB.png" alt="facebook">
         </a>
         <a class="socialbtn" href="https://www.youtube.com/channel/UCKjtJqq0QdIYhCIgUOmA36Q">
-          <img src="/img/YT.png">
+          <img src="/icons/YT.png" alt="youtube">
         </a>
       </div>
     </div>

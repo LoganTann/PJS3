@@ -2,7 +2,7 @@
   <div v-if="article">
     <header-article
       :img="article.img || null"
-      :type="article.type === 'date' ? 'L\'agenda' : 'Actualité'"
+      :type="articleType"
       :title="article.title"
       :date="date"
     />
@@ -36,6 +36,16 @@ export default {
         }
       }
       return ''
+    },
+    articleType () {
+      switch (this.article.type) {
+        case 'date':
+          return 'L\'agenda'
+        case 'actu':
+          return 'Actualité'
+        default:
+          return this.article.type
+      }
     }
   }
 }

@@ -36,6 +36,12 @@ export default {
       const whereToAdd = (article.type === 'date') ? 'agenda' : 'news'
       this[whereToAdd].unshift(article)
     }
+    this.news.sort(function (b, a) {
+      return a.slug.localeCompare(b.slug)
+    })
+    this.agenda.sort(function (b, a) {
+      return a.slug.localeCompare(b.slug)
+    })
   }
 }
 </script>

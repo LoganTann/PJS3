@@ -1,16 +1,13 @@
 <template>
   <div id="default-layout">
-    <nav-container />
+    <navContainer />
     <Nuxt class="nuxt-tag" />
-    <footer-main class="footer-main" />
+    <footerComponent />
   </div>
 </template>
 
 <script>
-import NavContainer from '~/components/nav-container'
-import FooterMain from '~/components/footer-main'
 export default {
-  components: { NavContainer, FooterMain },
   data () {
     return {
     }
@@ -25,8 +22,6 @@ export default {
 }
 .nuxt-tag {
   flex-grow: 1;
-}
-.footer-main {
 }
 </style>
 <style>

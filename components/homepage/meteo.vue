@@ -10,7 +10,7 @@
       <hr color="white">
     </div>
     <div class="texteMaree">
-      <img src="/img/clock_white_bg.png" alt="">
+      <img src="/icons/clock_white_bg.png" alt="">
       <div class="typeMaree">
         Marée {{ typeMaree }} dans
       </div>
@@ -54,6 +54,11 @@ export default {
     this.temperature = data.meteo.temperature
     this.image = '/img/svg/weather_icon_' + iconName + '.svg'
     this.traitement(data.maree)
+  },
+  destroyed () {
+    if (this.timer) {
+      clearInterval(this.timer)
+    }
   },
   methods: {
     // fonctions de traitement -----

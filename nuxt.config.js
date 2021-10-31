@@ -5,14 +5,14 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s',
-    title: 'pjs3',
+    title: 'Île de Bréhat',
     htmlAttrs: {
       lang: 'fr'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Site web de l\'Île de Bréhat' },
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
@@ -30,30 +30,22 @@ export default {
   css: ['@/assets/globalStyle.scss'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['plugins/vuesax.js'],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    'nuxt-vite'
-    // à réactiver : '@nuxtjs/eslint-module',
+    'nuxt-vite',
+    '@nuxtjs/eslint-module'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/content
-    '@nuxt/content',
-    '@nuxtjs/fontawesome'
+    '@nuxt/content'
   ],
-
-  fontawesome: {
-    icons: {
-      solid: true,
-      brands: true
-    }
-  },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {},

@@ -1,11 +1,11 @@
 <template>
-  <container class="index-page">
-    <header-article
+  <div class="index-page">
+    <ArticleHeader
       type="Visiter bréhat"
       title="Découvrir l'Île de Bréhat"
       img="phare.jpg"
     />
-    <content-article>
+    <ArticleContent>
       <div>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer suscipit blandit lacus ac lobortis. Praesent mollis est eget interdum viverra. Pellentesque bibendum felis non nibh posuere facilisis. Quisque eu nulla ac velit ultrices eleifend. Aenean viverra in enim eu maximus. Sed velit massa, tristique sed neque ut, semper congue orci. Proin finibus suscipit mauris vitae vulputate. Curabitur congue, ex id pulvinar porta, ante magna sagittis mauris, eget rhoncus ex turpis quis velit. Mauris vel consequat diam, ut condimentum tellus. Proin sed consectetur nisi, ac vehicula elit. Sed sit amet dui et ante condimentum cursus. Phasellus in rhoncus neque.
@@ -32,18 +32,13 @@
           Nam ac vehicula turpis. Maecenas eget laoreet quam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed tortor massa, tempor ac ex efficitur, blandit ullamcorper mi. Nunc sit amet purus ipsum. Aliquam volutpat eu elit eget convallis. Nulla a volutpat nisi, in pellentesque est. Suspendisse lobortis molestie orci, sit amet imperdiet nisi commodo vitae. Nullam vel ultrices leo. Sed blandit, lacus non varius placerat, tortor elit vehicula urna, ac aliquam purus sem quis justo. Mauris sollicitudin molestie mi, ut accumsan arcu bibendum quis. Morbi sit amet enim lectus. Phasellus eget eleifend ex. Nam iaculis rhoncus fringilla. Morbi quis interdum lectus.
         </p>
       </div>
-    </content-article>
-  </container>
+      </ArticleC>
+    </articlecontent>
+  </div>
 </template>
 
 <script>
-import Container from '~/components/container'
-import ContentArticle from '~/components/content-article'
-import HeaderArticle from '~/components/header-article'
-
 export default {
-  name: 'Discover',
-  components: [Container, ContentArticle, HeaderArticle]
 }
 </script>
 

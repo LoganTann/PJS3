@@ -23,8 +23,11 @@
 </template>
 
 <script>
+import meteo from './meteo.vue'
 export default {
-  name: 'HeaderHomepage'
+  components: {
+    meteo
+  }
 }
 </script>
 

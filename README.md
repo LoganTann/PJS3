@@ -1,5 +1,8 @@
 # PJS3 - Refonte du site de l'Île de Bréhat
 
+## Project archived since we got the final score of the homework. Please contact us using our github e-mail if needed.
+
+Note finale obtenue : 14/20 (barème non fourni)
 
 ## Dossiers
 

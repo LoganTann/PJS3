@@ -22,6 +22,9 @@
         <a class="socialbtn" href="https://www.youtube.com/channel/UCKjtJqq0QdIYhCIgUOmA36Q">
           <img src="/icons/YT.png" alt="youtube">
         </a>
+        <p>
+          Code source disponible librement sur <a href="https://github.com/LoganTann/PJS3"> github.com/LoganTann/PJS3</a>
+        </p>
       </div>
     </div>
     <div class="copy">

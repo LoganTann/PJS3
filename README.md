@@ -2,7 +2,15 @@
 
 ## Project archived since we got the final score of the homework. Please contact us using our github e-mail if needed.
 
-Note finale obtenue : 14/20 (barème non fourni)
+Note finale obtenue : 16/20
+
+Commentaires de notation : 
+* Rendu de site devrait être plus complet
+* Le rapport de rendu manque en détail
+
+Pistes d'amélioration : 
+* Plus de temps aurait dû être passé à rédiger les articles visibles sur le menu latéral plutôt que les articles de blog.
+* Le rapport final ne contenait presque que des liens et manquait également de qualité. Tout regrouper sur une page aurait été plus judicieux.
 
 ## Dossiers
 
